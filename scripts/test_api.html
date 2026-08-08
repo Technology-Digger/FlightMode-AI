@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FlightMode AI — API Smoke Test</title>
+</head>
+<body>
+<h2>FlightMode AI: API Smoke Test</h2>
+<pre id="output">Running POST /api/automation...</pre>
+<script>
+async function run() {
+  const el = document.getElementById("output");
+  const start = Date.now();
+  try {
+    const res = await fetch("http://127.0.0.1:8000/api/automation", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        prompt: "Write a one-paragraph summary of the benefits of automated testing in software development.",
+        enableFallback: true,
+      }),
+    });
+    const status = res.status;
+    const data = await res.json();
+    const latency = Date.now() - start;
+
+    if (status === 200) {
+      el.innerText =
+        "✅ SUCCESS\n\n" +
+        "Model:      " + data.model + "\n" +
+        "Provider:   " + data.provider + "\n" +
+        "Status:     " + status + "\n" +
+        "Latency:    " + latency + " ms\n" +
+        "Fallback:   " + data.fallback_used + "\n" +
+        "Processing: " + data.processing_time_ms + " ms\n\n" +
+        "--- Content Preview (first 500 chars) ---\n" +
+        data.content.substring(0, 500);
+    } else {
+      el.innerText = "❌ FAILED\n\nStatus: " + status + "\n" + JSON.stringify(data, null, 2);
+    }
+  } catch (err) {
+    el.innerText = "❌ ERROR: " + err.message + "\n\nMake sure the backend is running on http://127.0.0.1:8000";
+  }
+}
+run();
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "Flight Mode AI — AI-Powered Workflow Automation",
+  "short_name": "Flight Mode AI",
+  "description": "Orchestrates AI models and external APIs to complete complex workflows automatically. Describe a task, launch a run, and get a finished result.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f2f7fb",
+  "theme_color": "#0284c7",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
