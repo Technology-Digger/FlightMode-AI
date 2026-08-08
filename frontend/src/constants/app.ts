@@ -15,7 +15,7 @@ export const CONTACT_EMAIL = "hello@flightmode.ai";
  * Override with VITE_API_BASE_URL — never hardcode a URL in feature code.
  */
 export const API_BASE_URL: string =
-  import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000";
+  import.meta.env.VITE_API_BASE_URL ?? "https://flightmode-ai-1.onrender.com";
 
 export const STORAGE_KEYS = {
   settings: "flightmode.settings.v1",
