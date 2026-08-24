@@ -33,7 +33,7 @@ REQUEST_TIMEOUT = 60.0  # seconds
 async def generate(
     prompt: str,
     api_key: str,
-    model: str = "gemini-2.0-flash",
+    model: str = "gemini-3.6-flash",
     *,
     key_index: Optional[int] = None,
 ) -> str:

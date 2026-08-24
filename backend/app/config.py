@@ -48,7 +48,7 @@ class Settings:
         self.groq_api_key = os.getenv("GROQ_API_KEY", "")
 
         # Model identifiers — overridable via env for future upgrades
-        self.gemini_model = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
+        self.gemini_model = os.getenv("GEMINI_MODEL", "gemini-3.6-flash")
         self.groq_model = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
 
     # -- Helpers --------------------------------------------------------------
